@@ -1,50 +1,52 @@
-import discord, youtube_dl, os
-from discord.ext import commands
-from discord.ext.commands import bot
+#import discord, youtube_dl, os
+#from discord.ext import commands
+#from discord.ext.commands import bot
 
 
-client = commands.Bot(command_prefix="$")
+#@commands.command(name='play')
 
-@client.command(name='play')
+#async def play(ctx, url: str):
+    #channel = ctx.author.voice.channel
+    #voice = discord.utils.get(commands.voice_clients, guild=ctx.guild)
+    #if not voice.is_connected():
+        #await channel.connect
 
-async def play(ctx, url: str):
-    voiceChannel = discord.utils.get(ctx.guild.voice_channels, name='STAFF CHAT')
-    voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
-    if not voice.is_connected():
-        await voiceChannel.connect()
+#@commands.command(name='join')
 
-@client.command()
+#async def join(ctx, enter):
+  #channel = ctx.author.voice.channel
+  #await channel.connect()
 
-async def leave(ctx):
-    voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
-    if voice.is_connected():
-        await voice.disconnect()
-    else:
-        await ctx.send('E eu lá to conectado, porra?')
+#@commands.command(name='leave')
 
-@client.command()
+#async def leave(ctx):
+    #voice = discord.utils.get(commands.voice_clients, guild=ctx.guild)
+    #if voice.is_connected():
+        #await voice.disconnect()
+    #else:
+        #await ctx.send('E eu lá to conectado, porra?')
 
-async def pause(ctx):
-    voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
-    if voice.is_playing():
-        voice.pause()
-        await ctx.send('Pausei bro')
-    else:
-        await ctx.send('To tocando nada não, bro')
+#@commands.command(name='pause')
 
-@client.command()
+#async def pause(ctx):
+    #voice = discord.utils.get(commands.voice_clients, guild=ctx.guild)
+    #if voice.is_playing():
+        #voice.pause()
+        #await ctx.send('Pausei bro')
+    #else:
+        #await ctx.send('To tocando nada não, bro')
 
-async def resume(ctx):
-    voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
-    if voice.is_paused():
-        voice.resume()
-    else:
-        await ctx.send('Já to tocando, amigão')
+#@commands.command(name='resume')
 
-@client.command()
+#async def resume(ctx):
+    #voice = discord.utils.get(commands.voice_clients, guild=ctx.guild)
+    #if voice.is_paused():
+        #voice.resume()
+    #else:
+        #await ctx.send('Já to tocando, amigão')
 
-async def stop(ctx):
-    voice = discord.utils.get(client.voice_clients, guild=ctx.guild)
-    voice.stop()
+#@commands.command(name='stop')
 
-client.run('ODk1NjQ4MTAzOTM4NTMxMzI4.YV7nTA.NhhqjdvYMqcY1XSWYj9QVKNBuJw')
+#async def stop(ctx):
+    #voice = discord.utils.get(commands.voice_clients, guild=ctx.guild)
+    #voice.stop()

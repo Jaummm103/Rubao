@@ -1,29 +1,48 @@
 import discord
-import func, msc, youtube_dl, os
+import func
+import musica
 from discord.ext import commands
-from discord.ext.commands import bot
 
-client = discord.Client()
-client1 = commands.Bot(command_prefix="$")
+cogs = [musica]
 
+client = commands.Bot(command_prefix='$', intents = discord.Intents.all())
 
+for i in range(len(cogs)):
+  cogs[i].setup(client)
+
+# Curar as mensagens pra não responder bots e etc #
 @client.event
 
 async def on_message(message):
-    message.content = message.content.lower()
-    if message.author == client.user:
-        return
+  message.content = message.content.lower()
+  await client.process_commands(message)
+  if message.author == client.user:
+    return
 
-@client1.command()
+# Funções abaixo executam as funções dos outros arquivos #
+@client.command(name='oi')
 
 async def oi(ctx, arg):
-    await ctx.send(func.oi(ctx, arg))
+  await ctx.send(func.oi(ctx, arg))
 
-@client1.command(name='play')
+@client.command(name='teste')
 
-async def play(ctx, url):
-    await (msc.play(ctx, url))
+async def teste(ctx):
+  await ctx.send(func.teste(ctx))
 
-client.run('ODk1NjQ4MTAzOTM4NTMxMzI4.YV7nTA.NhhqjdvYMqcY1XSWYj9QVKNBuJw')
+@client.command(name='ping')
 
-client1.run('ODk1NjQ4MTAzOTM4NTMxMzI4.YV7nTA.NhhqjdvYMqcY1XSWYj9QVKNBuJw')
+async def ping(ctx):
+  await ctx.send(func.ping(ctx))
+
+# @client.command(name='join')
+
+# async def join(ctx):
+# await(msc.join(ctx))
+
+# @client.command(name='play')
+
+# async def play(ctx, url: str):
+#   await (msc.play(ctx, url))
+
+client.run('')
