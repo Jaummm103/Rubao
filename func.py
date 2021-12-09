@@ -1,4 +1,4 @@
-from discord.ext import commands # teste para os broxa
+from discord.ext import commands
 # Comandos básicos pro bot, maioria só pra teste #
 
 @commands.command(name='oi')
